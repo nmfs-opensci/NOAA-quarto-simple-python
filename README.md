@@ -1,8 +1,6 @@
-[![](https://img.shields.io/badge/Open%20In-RStudio%20Cloud-green)](https://rstudio.cloud/content/4771757) *Try without installing anything. Make sure to click the Make a Copy button or you will lose all your changes.*
- 
-# NOAA quarto simple website with R in qmd or Rmd files
+# NOAA quarto simple website with Python in qmd or Jupyter Notebooks
 
-This is a template for [a simple Quarto website](https://nmfs-opensci.github.io/NOAA-quarto-simple/) that looks like a "book". This is a common format for documentation. It includes a GitHub Action that will build the website automatically when you make changes to the files. The webpage will use the `gh-pages` branch. Serving the website files from this branch is a common way to keep all the website files from cluttering your main branch. 
+This is a template for [a simple Quarto website](https://nmfs-opensci.github.io/NOAA-quarto-simple-python/) that looks like a "book". This is a common format for documentation. It includes a GitHub Action that will build the website automatically when you make changes to the files. The webpage will use the `gh-pages` branch. Serving the website files from this branch is a common way to keep all the website files from cluttering your main branch. 
 
 This Quarto website has Python code in the `code.qmd` file and has a Jupyter notebook. The GitHub Action will render those for you but note that you need some a special **RAW** block at the top of your ipynb file. Without this, the Jupyter notebook won't render (code blocks won't be computed). It looks like this
 ```
