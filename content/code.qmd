@@ -2,18 +2,22 @@
 title: Rendering with Code
 ---
 
-You can have code (R, Python or Julia) in your qmd file. You will need to have these installed on your local computer, but presumably you do already if you are adding code to your qmd files.
+You can have code Python in your qmd file. You will need to have these installed on your local computer, but presumably you do already if you are adding code to your qmd files.
 
-```{r echo=TRUE}
-x <- c(5, 15, 25, 35, 45, 55)
-y <- c(5, 20, 14, 32, 22, 38)
-lm(x ~ y)
+```{python echo=TRUE}
+import matplotlib.pyplot as plt
+
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+
+plt.scatter(x, y)
+plt.show()
 ```
 
 
 ## Modify the GitHub Action
 
-You will need to change the GitHub Action in `.github/workflows` to install these and any needed packages in order for GitHub to be able to render your webpage. The GitHub Action install R since I used that in `code.qmd`. If you use Python or Julia instead, then you will need to update the GitHub Action to install those.
+When you add Python modules, you will need to change the GitHub Action in `.github/workflows` to install these in order for GitHub to be able to render your webpage. The GitHub Action installs Python since I used that in `code.qmd`. If you use R or Julia instead, then you will need to update the GitHub Action to install those.
 
 If getting the GitHub Action to work is too much hassle (and that definitely happens), you can alway render locally and publish to the `gh-pages` branch. If you do this, make sure to delete or rename the GitHub Action to something like
 ```
