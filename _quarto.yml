@@ -39,8 +39,8 @@ website:
         text: Customizing
       - href: content/rendering.qmd
         text: Rendering
-      - href: content/rmarkdown.Rmd
-        text: R Markdown files
+      - href: content/notebook.ipynb
+        text: Jupyter Notebook
       - href: content/code.qmd
         text: Code in your files
       - href: content/acknowledgements.qmd
