@@ -1,0 +1,11 @@
+name: quarto-import
+channels:
+- conda-forge
+dependencies:
+- python=3.8
+- nbformat=5.1
+- requests=2.26
+- pip
+- pip:
+  - pqdm
+  - markdown
