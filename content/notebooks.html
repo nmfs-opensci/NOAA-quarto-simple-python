@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NOAA quarto simple – notebooks</title>
+<title>NOAA quarto simple - Jupyter Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,6 +125,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -135,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <h1 class="quarto-secondary-nav-title">Jupyter Notebook</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -218,14 +221,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Jupyter Notebook</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
 
 <section id="jupyter-notebook-files" class="level1">
 <h1>Jupyter Notebook files</h1>
 <p>You can create content with Jupyter notebooks.</p>
 <section id="a-plot" class="level2">
 <h2 class="anchored" data-anchor-id="a-plot">A plot</h2>
-<div class="cell" data-tags="[&quot;hide-input&quot;]">
+<div class="cell" data-tags="[&quot;hide-input&quot;]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
@@ -235,12 +252,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="notebooks_files/figure-html/cell-2-output-1.png" width="450" height="439"></p>
+</div>
 </div>
 </section>
 <section id="interactive-outputs" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-outputs">Interactive outputs</h2>
 <p>Below we’ll display a map using <a href="https://python-visualization.github.io/folium/">folium</a>. When your book is built, the code for creating the interactive map is retained.</p>
-<div class="cell">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.372</span>, <span class="op">-</span><span class="fl">121.6972</span>],</span>
@@ -267,6 +287,152 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<head>    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;></script>
+    <script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_9e80004036040a441891d713dec5768b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_9e80004036040a441891d713dec5768b&quot; ></div>
+        
+</body>
+<script>    
+    
+            var map_9e80004036040a441891d713dec5768b = L.map(
+                &quot;map_9e80004036040a441891d713dec5768b&quot;,
+                {
+                    center: [45.372, -121.6972],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a8a0455199fe7d16260500a74331238a = L.tileLayer(
+                &quot;https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg&quot;,
+                {&quot;attribution&quot;: &quot;Map tiles by \u003ca href=\&quot;http://stamen.com\&quot;\u003eStamen Design\u003c/a\u003e, under \u003ca href=\&quot;http://creativecommons.org/licenses/by/3.0\&quot;\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\&quot;http://creativecommons.org/licenses/by-sa/3.0\&quot;\u003eCC BY SA\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            ).addTo(map_9e80004036040a441891d713dec5768b);
+        
+    
+            var marker_6dfea7a0e4bcbe7130a1cc1cd3761483 = L.marker(
+                [45.3288, -121.6625],
+                {}
+            ).addTo(map_9e80004036040a441891d713dec5768b);
+        
+    
+            var icon_3a8c6033c6f9b1ae3a2f2dc841dd5c8a = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;cloud&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_6dfea7a0e4bcbe7130a1cc1cd3761483.setIcon(icon_3a8c6033c6f9b1ae3a2f2dc841dd5c8a);
+        
+    
+        var popup_4fa339195ed9a29ec058dd4ac205ce41 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_064b10d035040bd854ead588929fc08d = $(`<div id=&quot;html_064b10d035040bd854ead588929fc08d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Mt. Hood Meadows</div>`)[0];
+                popup_4fa339195ed9a29ec058dd4ac205ce41.setContent(html_064b10d035040bd854ead588929fc08d);
+            
+        
+
+        marker_6dfea7a0e4bcbe7130a1cc1cd3761483.bindPopup(popup_4fa339195ed9a29ec058dd4ac205ce41)
+        ;
+
+        
+    
+    
+            var marker_82ce1b6bfa5505bbc92d2817b7b37803 = L.marker(
+                [45.3311, -121.7113],
+                {}
+            ).addTo(map_9e80004036040a441891d713dec5768b);
+        
+    
+            var icon_05c6df636ecafdf82e3db324d3df1c8f = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;green&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_82ce1b6bfa5505bbc92d2817b7b37803.setIcon(icon_05c6df636ecafdf82e3db324d3df1c8f);
+        
+    
+        var popup_9f1b0a62d75e631e1bb9ceb9e1613374 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_a1d29d1acfba687db3fdbb2f507bdb9a = $(`<div id=&quot;html_a1d29d1acfba687db3fdbb2f507bdb9a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Timberline Lodge</div>`)[0];
+                popup_9f1b0a62d75e631e1bb9ceb9e1613374.setContent(html_a1d29d1acfba687db3fdbb2f507bdb9a);
+            
+        
+
+        marker_82ce1b6bfa5505bbc92d2817b7b37803.bindPopup(popup_9f1b0a62d75e631e1bb9ceb9e1613374)
+        ;
+
+        
+    
+    
+            var marker_2507750e62067c89974393327e5ad455 = L.marker(
+                [45.33, -121.6823],
+                {}
+            ).addTo(map_9e80004036040a441891d713dec5768b);
+        
+    
+            var icon_0d0acdbe589ec6b7ccb41d1b4a7e01ca = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;red&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_2507750e62067c89974393327e5ad455.setIcon(icon_0d0acdbe589ec6b7ccb41d1b4a7e01ca);
+        
+    
+        var popup_479354c576a9adfa37266bbf6363f017 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_3e26849697ee83dc66e3e2b6f8774f2b = $(`<div id=&quot;html_3e26849697ee83dc66e3e2b6f8774f2b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Some Other Location</div>`)[0];
+                popup_479354c576a9adfa37266bbf6363f017.setContent(html_3e26849697ee83dc66e3e2b6f8774f2b);
+            
+        
+
+        marker_2507750e62067c89974393327e5ad455.bindPopup(popup_479354c576a9adfa37266bbf6363f017)
+        ;
+
+        
+    
+</script>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
 </div>
 
 

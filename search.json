@@ -37,9 +37,9 @@
   {
     "objectID": "content/notebooks.html",
     "href": "content/notebooks.html",
-    "title": "NOAA quarto simple",
+    "title": "Jupyter Notebook",
     "section": "",
-    "text": "You can create content with Jupyter notebooks.\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'})\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nBelow we’ll display a map using folium. When your book is built, the code for creating the interactive map is retained.\n\nimport folium\nm = folium.Map(\n    location=[45.372, -121.6972],\n    zoom_start=12,\n    tiles='Stamen Terrain'\n)\n\nfolium.Marker(\n    location=[45.3288, -121.6625],\n    popup='Mt. Hood Meadows',\n    icon=folium.Icon(icon='cloud')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3311, -121.7113],\n    popup='Timberline Lodge',\n    icon=folium.Icon(color='green')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3300, -121.6823],\n    popup='Some Other Location',\n    icon=folium.Icon(color='red', icon='info-sign')\n).add_to(m)\n\nm"
+    "text": "You can create content with Jupyter notebooks.\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'})\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\nBelow we’ll display a map using folium. When your book is built, the code for creating the interactive map is retained.\n\nimport folium\nm = folium.Map(\n    location=[45.372, -121.6972],\n    zoom_start=12,\n    tiles='Stamen Terrain'\n)\n\nfolium.Marker(\n    location=[45.3288, -121.6625],\n    popup='Mt. Hood Meadows',\n    icon=folium.Icon(icon='cloud')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3311, -121.7113],\n    popup='Timberline Lodge',\n    icon=folium.Icon(color='green')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3300, -121.6823],\n    popup='Some Other Location',\n    icon=folium.Icon(color='red', icon='info-sign')\n).add_to(m)\n\nm\n\nMake this Notebook Trusted to load map: File -> Trust Notebook"
   },
   {
     "objectID": "content/code.html",
