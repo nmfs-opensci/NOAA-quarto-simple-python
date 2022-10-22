@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/index.html</loc>
-    <lastmod>2022-10-22T01:30:54.535Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/index.html</loc>
+    <lastmod>2022-10-22T01:40:49.061Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/customizing.html</loc>
-    <lastmod>2022-10-22T01:30:55.823Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/customizing.html</loc>
+    <lastmod>2022-10-22T01:40:50.185Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/acknowledgements.html</loc>
-    <lastmod>2022-10-22T01:30:56.211Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/acknowledgements.html</loc>
+    <lastmod>2022-10-22T01:40:50.541Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/notebooks.html</loc>
-    <lastmod>2022-10-22T01:31:01.423Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/notebooks.html</loc>
+    <lastmod>2022-10-22T01:40:55.077Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/code.html</loc>
-    <lastmod>2022-10-22T01:31:05.159Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/code.html</loc>
+    <lastmod>2022-10-22T01:40:58.409Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/publishing.html</loc>
-    <lastmod>2022-10-22T01:31:05.575Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/publishing.html</loc>
+    <lastmod>2022-10-22T01:40:58.777Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/add-content.html</loc>
-    <lastmod>2022-10-22T01:31:05.987Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/add-content.html</loc>
+    <lastmod>2022-10-22T01:40:59.113Z</lastmod>
   </url>
   <url>
-    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple/content/rendering.html</loc>
-    <lastmod>2022-10-22T01:31:06.359Z</lastmod>
+    <loc>https://nmfs-opensci.github.io/NOAA-quarto-simple-python/content/rendering.html</loc>
+    <lastmod>2022-10-22T01:40:59.457Z</lastmod>
   </url>
 </urlset>
