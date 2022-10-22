@@ -11,3 +11,4 @@ dependencies:
   - markdown
   - matplotlib
   - folium
+  - jupyter
