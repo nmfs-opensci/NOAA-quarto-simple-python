@@ -9,3 +9,5 @@ dependencies:
 - pip:
   - pqdm
   - markdown
+  - matplotlib
+  - folium
