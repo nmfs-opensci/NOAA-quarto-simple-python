@@ -10,15 +10,14 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-    - uses: actions/checkout@v2
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: actions/checkout@v3
+    
+    - uses: actions/setup-python@v4
       with:
-        python-version: 3.8
-        channels: conda-forge
-        mamba-version: "*"
-        activate-environment: quarto
-        environment-file: environment.yml
-
+        python-version: '3.9'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
+    
     - name: Set up Quarto
       uses: quarto-dev/quarto-actions/setup@v2
       with:
