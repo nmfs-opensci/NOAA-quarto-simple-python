@@ -39,42 +39,7 @@
     "href": "content/notebooks.html",
     "title": "NOAA quarto simple",
     "section": "",
-    "text": "(file-types:notebooks)= # Jupyter Notebook files\nYou can create content with Jupyter notebooks. For example, the content for the current page is contained in {download}this notebook file <./notebooks.ipynb>.\nJupyter Book supports all Markdown that is supported by Jupyter Notebook. This is mostly a flavour of Markdown called CommonMark Markdown with minor modifications. For more information about writing Jupyter-flavoured Markdown in Jupyter Book, see ."
-  },
-  {
-    "objectID": "content/notebooks.html#code-blocks-and-image-outputs",
-    "href": "content/notebooks.html#code-blocks-and-image-outputs",
-    "title": "NOAA quarto simple",
-    "section": "Code blocks and image outputs",
-    "text": "Code blocks and image outputs\nJupyter Book will also embed your code blocks and output in your book. For example, here’s some sample Matplotlib code:\n\nfrom matplotlib import rcParams, cycler\nimport matplotlib.pyplot as plt\nimport numpy as np\nplt.ion()\n\n\n# Fixing random state for reproducibility\nnp.random.seed(19680801)\n\nN = 10\ndata = [np.logspace(0, 1, 100) + np.random.randn(100) + ii for ii in range(N)]\ndata = np.array(data).T\ncmap = plt.cm.coolwarm\nrcParams['axes.prop_cycle'] = cycler(color=cmap(np.linspace(0, 1, N)))\n\n\nfrom matplotlib.lines import Line2D\ncustom_lines = [Line2D([0], [0], color=cmap(0.), lw=4),\n                Line2D([0], [0], color=cmap(.5), lw=4),\n                Line2D([0], [0], color=cmap(1.), lw=4)]\n\nfig, ax = plt.subplots(figsize=(10, 5))\nlines = ax.plot(data)\nax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);\n\nNote that the image above is captured and displayed in your site.\n\n# Fixing random state for reproducibility\nnp.random.seed(19680801)\n\nN = 10\ndata = [np.logspace(0, 1, 100) + .1*np.random.randn(100) + ii for ii in range(N)]\ndata = np.array(data).T\ncmap = plt.cm.coolwarm\nrcParams['axes.prop_cycle'] = cycler(color=cmap(np.linspace(0, 1, N)))\n\n\nfrom matplotlib.lines import Line2D\ncustom_lines = [Line2D([0], [0], color=cmap(0.), lw=4),\n                Line2D([0], [0], color=cmap(.5), lw=4),\n                Line2D([0], [0], color=cmap(1.), lw=4)]\n\nfig, ax = plt.subplots(figsize=(10, 5))\nlines = ax.plot(data)\nax.legend(custom_lines, ['Cold', 'Medium', 'Hot'])\nax.set(title=\"Smoother linez\")\n\n{margin} **You can also pop out content to the side!** For more information on how to do this, check out the {ref}`layout/sidebar` section."
-  },
-  {
-    "objectID": "content/notebooks.html#removing-content-before-publishing",
-    "href": "content/notebooks.html#removing-content-before-publishing",
-    "title": "NOAA quarto simple",
-    "section": "Removing content before publishing",
-    "text": "Removing content before publishing\nYou can also remove some content before publishing your book to the web. For reference, {download}you can download the notebook content for this page <notebooks.ipynb>.\n\nthisvariable = \"none of this should show up in the textbook\"\n\nfig, ax = plt.subplots()\nx = np.random.randn(100)\ny = np.random.randn(100)\nax.scatter(x, y, s=np.abs(x*100), c=x, cmap=plt.cm.coolwarm)\nax.text(0, .5, thisvariable, fontsize=20, transform=ax.transAxes)\nax.set_axis_off()\n\nYou can remove only the code so that images and other output still show up.\n\nthisvariable = \"this plot *will* show up in the textbook.\"\n\nfig, ax = plt.subplots()\nx = np.random.randn(100)\ny = np.random.randn(100)\nax.scatter(x, y, s=np.abs(x*100), c=x, cmap=plt.cm.coolwarm)\nax.text(0, .5, thisvariable, fontsize=20, transform=ax.transAxes)\nax.set_axis_off()\n\nWhich works well if you’d like to quickly display cell output without cluttering your content with code. This works for any cell output, like a Pandas DataFrame.\n\nimport pandas as pd\npd.DataFrame([['hi', 'there'], ['this', 'is'], ['a', 'DataFrame']], columns=['Word A', 'Word B'])\n\nSee {ref}hiding/remove-content for more information about hiding and removing content."
-  },
-  {
-    "objectID": "content/notebooks.html#interactive-outputs",
-    "href": "content/notebooks.html#interactive-outputs",
-    "title": "NOAA quarto simple",
-    "section": "Interactive outputs",
-    "text": "Interactive outputs\nWe can do the same for interactive material. Below we’ll display a map using folium. When your book is built, the code for creating the interactive map is retained.\n**This will only work for some packages.** They need to be able to output standalone\nHTML/Javascript, and not\ndepend on an underlying Python kernel to work.\n\nimport folium\nm = folium.Map(\n    location=[45.372, -121.6972],\n    zoom_start=12,\n    tiles='Stamen Terrain'\n)\n\nfolium.Marker(\n    location=[45.3288, -121.6625],\n    popup='Mt. Hood Meadows',\n    icon=folium.Icon(icon='cloud')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3311, -121.7113],\n    popup='Timberline Lodge',\n    icon=folium.Icon(color='green')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3300, -121.6823],\n    popup='Some Other Location',\n    icon=folium.Icon(color='red', icon='info-sign')\n).add_to(m)\n\nm"
-  },
-  {
-    "objectID": "content/notebooks.html#rich-outputs-from-notebook-cells",
-    "href": "content/notebooks.html#rich-outputs-from-notebook-cells",
-    "title": "NOAA quarto simple",
-    "section": "Rich outputs from notebook cells",
-    "text": "Rich outputs from notebook cells\nBecause notebooks have rich text outputs, you can store these in your Jupyter Book as well! For example, here is the command line help menu, see how it is nicely formatted.\n\n!jupyter-book build --help\n\nAnd here is an error. You can mark notebook cells as “expected to error” by adding a raises-exception tag to them.\n\nthis_will_error"
-  },
-  {
-    "objectID": "content/notebooks.html#more-features-with-jupyter-notebooks",
-    "href": "content/notebooks.html#more-features-with-jupyter-notebooks",
-    "title": "NOAA quarto simple",
-    "section": "More features with Jupyter notebooks",
-    "text": "More features with Jupyter notebooks\nThere are many other features of Jupyter notebooks to take advantage of, such as automatically generating Binder links for notebooks or connecting your content with a kernel in the cloud. For more information browse the pages in this site, and  in particular."
+    "text": "You can create content with Jupyter notebooks.\n\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'})\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nBelow we’ll display a map using folium. When your book is built, the code for creating the interactive map is retained.\n\nimport folium\nm = folium.Map(\n    location=[45.372, -121.6972],\n    zoom_start=12,\n    tiles='Stamen Terrain'\n)\n\nfolium.Marker(\n    location=[45.3288, -121.6625],\n    popup='Mt. Hood Meadows',\n    icon=folium.Icon(icon='cloud')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3311, -121.7113],\n    popup='Timberline Lodge',\n    icon=folium.Icon(color='green')\n).add_to(m)\n\nfolium.Marker(\n    location=[45.3300, -121.6823],\n    popup='Some Other Location',\n    icon=folium.Icon(color='red', icon='info-sign')\n).add_to(m)\n\nm"
   },
   {
     "objectID": "content/code.html",

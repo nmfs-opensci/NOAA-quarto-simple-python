@@ -207,11 +207,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#code-blocks-and-image-outputs" id="toc-code-blocks-and-image-outputs" class="nav-link active" data-scroll-target="#code-blocks-and-image-outputs">Code blocks and image outputs</a></li>
-  <li><a href="#removing-content-before-publishing" id="toc-removing-content-before-publishing" class="nav-link" data-scroll-target="#removing-content-before-publishing">Removing content before publishing</a></li>
+  <li><a href="#jupyter-notebook-files" id="toc-jupyter-notebook-files" class="nav-link active" data-scroll-target="#jupyter-notebook-files">Jupyter Notebook files</a>
+  <ul class="collapse">
+  <li><a href="#a-plot" id="toc-a-plot" class="nav-link" data-scroll-target="#a-plot">A plot</a></li>
   <li><a href="#interactive-outputs" id="toc-interactive-outputs" class="nav-link" data-scroll-target="#interactive-outputs">Interactive outputs</a></li>
-  <li><a href="#rich-outputs-from-notebook-cells" id="toc-rich-outputs-from-notebook-cells" class="nav-link" data-scroll-target="#rich-outputs-from-notebook-cells">Rich outputs from notebook cells</a></li>
-  <li><a href="#more-features-with-jupyter-notebooks" id="toc-more-features-with-jupyter-notebooks" class="nav-link" data-scroll-target="#more-features-with-jupyter-notebooks">More features with Jupyter notebooks</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/nmfs-opensci/NOAA-quarto-simple/blob/main/content/notebooks.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/nmfs-opensci/NOAA-quarto-simple/blob/main/content/notebooks.ipynb" class="toc-action">View source</a></p><p><a href="https://github.com/nmfs-opensci/NOAA-quarto-simple/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -220,147 +220,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p>(file-types:notebooks)= # Jupyter Notebook files</p>
-<p>You can create content with Jupyter notebooks. For example, the content for the current page is contained in {download}<code>this notebook file &lt;./notebooks.ipynb&gt;</code>.</p>
-<pre class="{margin}"><code>If you'd like to write in plain-text files, but still keep a notebook structure, you can write
-Jupyter notebooks with MyST Markdown, which are then automatically converted to notebooks.
-See [](./myst-notebooks.md) for more details.</code></pre>
-<p>Jupyter Book supports all Markdown that is supported by Jupyter Notebook. This is mostly a flavour of Markdown called <a href="https://commonmark.org/">CommonMark Markdown</a> with minor modifications. For more information about writing Jupyter-flavoured Markdown in Jupyter Book, see <a href="./markdown.md"></a>.</p>
-<section id="code-blocks-and-image-outputs" class="level2">
-<h2 class="anchored" data-anchor-id="code-blocks-and-image-outputs">Code blocks and image outputs</h2>
-<p>Jupyter Book will also embed your code blocks and output in your book. For example, here’s some sample Matplotlib code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> rcParams, cycler</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.ion()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-tags="[&quot;remove-stdout&quot;]">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixing random state for reproducibility</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">19680801</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [np.logspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>) <span class="op">+</span> np.random.randn(<span class="dv">100</span>) <span class="op">+</span> ii <span class="cf">for</span> ii <span class="kw">in</span> <span class="bu">range</span>(N)]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array(data).T</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> plt.cm.coolwarm</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>rcParams[<span class="st">'axes.prop_cycle'</span>] <span class="op">=</span> cycler(color<span class="op">=</span>cmap(np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, N)))</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>custom_lines <span class="op">=</span> [Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span>cmap(<span class="fl">0.</span>), lw<span class="op">=</span><span class="dv">4</span>),</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span>cmap(<span class="fl">.5</span>), lw<span class="op">=</span><span class="dv">4</span>),</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span>cmap(<span class="fl">1.</span>), lw<span class="op">=</span><span class="dv">4</span>)]</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> ax.plot(data)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>ax.legend(custom_lines, [<span class="st">'Cold'</span>, <span class="st">'Medium'</span>, <span class="st">'Hot'</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note that the image above is captured and displayed in your site.</p>
-<div class="cell" data-tags="[&quot;popout&quot;,&quot;remove-input&quot;,&quot;remove-stdout&quot;]">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixing random state for reproducibility</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">19680801</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [np.logspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>) <span class="op">+</span> <span class="fl">.1</span><span class="op">*</span>np.random.randn(<span class="dv">100</span>) <span class="op">+</span> ii <span class="cf">for</span> ii <span class="kw">in</span> <span class="bu">range</span>(N)]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array(data).T</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> plt.cm.coolwarm</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>rcParams[<span class="st">'axes.prop_cycle'</span>] <span class="op">=</span> cycler(color<span class="op">=</span>cmap(np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, N)))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>custom_lines <span class="op">=</span> [Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span>cmap(<span class="fl">0.</span>), lw<span class="op">=</span><span class="dv">4</span>),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span>cmap(<span class="fl">.5</span>), lw<span class="op">=</span><span class="dv">4</span>),</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], color<span class="op">=</span>cmap(<span class="fl">1.</span>), lw<span class="op">=</span><span class="dv">4</span>)]</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> ax.plot(data)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>ax.legend(custom_lines, [<span class="st">'Cold'</span>, <span class="st">'Medium'</span>, <span class="st">'Hot'</span>])</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Smoother linez"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>{margin} **You can also pop out content to the side!** For more information on how to do this, check out the {ref}`layout/sidebar` section.</code></p>
-</section>
-<section id="removing-content-before-publishing" class="level2">
-<h2 class="anchored" data-anchor-id="removing-content-before-publishing">Removing content before publishing</h2>
-<p>You can also remove some content before publishing your book to the web. For reference, {download}<code>you can download the notebook content for this page &lt;notebooks.ipynb&gt;</code>.</p>
-<div class="cell" data-tags="[&quot;remove-cell&quot;]">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>thisvariable <span class="op">=</span> <span class="st">"none of this should show up in the textbook"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, s<span class="op">=</span>np.<span class="bu">abs</span>(x<span class="op">*</span><span class="dv">100</span>), c<span class="op">=</span>x, cmap<span class="op">=</span>plt.cm.coolwarm)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="dv">0</span>, <span class="fl">.5</span>, thisvariable, fontsize<span class="op">=</span><span class="dv">20</span>, transform<span class="op">=</span>ax.transAxes)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can <strong>remove only the code</strong> so that images and other output still show up.</p>
+<section id="jupyter-notebook-files" class="level1">
+<h1>Jupyter Notebook files</h1>
+<p>You can create content with Jupyter notebooks.</p>
+<section id="a-plot" class="level2">
+<h2 class="anchored" data-anchor-id="a-plot">A plot</h2>
 <div class="cell" data-tags="[&quot;hide-input&quot;]">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>thisvariable <span class="op">=</span> <span class="st">"this plot *will* show up in the textbook."</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, s<span class="op">=</span>np.<span class="bu">abs</span>(x<span class="op">*</span><span class="dv">100</span>), c<span class="op">=</span>x, cmap<span class="op">=</span>plt.cm.coolwarm)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="dv">0</span>, <span class="fl">.5</span>, thisvariable, fontsize<span class="op">=</span><span class="dv">20</span>, transform<span class="op">=</span>ax.transAxes)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">'projection'</span>: <span class="st">'polar'</span>})</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Which works well if you’d like to quickly display cell output without cluttering your content with code. This works for any cell output, like a Pandas DataFrame.</p>
-<div class="cell" data-tags="[&quot;hide-input&quot;]">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame([[<span class="st">'hi'</span>, <span class="st">'there'</span>], [<span class="st">'this'</span>, <span class="st">'is'</span>], [<span class="st">'a'</span>, <span class="st">'DataFrame'</span>]], columns<span class="op">=</span>[<span class="st">'Word A'</span>, <span class="st">'Word B'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>See {ref}<code>hiding/remove-content</code> for more information about hiding and removing content.</p>
 </section>
 <section id="interactive-outputs" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-outputs">Interactive outputs</h2>
-<p>We can do the same for <em>interactive</em> material. Below we’ll display a map using <a href="https://python-visualization.github.io/folium/">folium</a>. When your book is built, the code for creating the interactive map is retained.</p>
-<pre class="{margin}"><code>**This will only work for some packages.** They need to be able to output standalone
-HTML/Javascript, and not
-depend on an underlying Python kernel to work.</code></pre>
+<p>Below we’ll display a map using <a href="https://python-visualization.github.io/folium/">folium</a>. When your book is built, the code for creating the interactive map is retained.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.372</span>, <span class="op">-</span><span class="fl">121.6972</span>],</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    zoom_start<span class="op">=</span><span class="dv">12</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    tiles<span class="op">=</span><span class="st">'Stamen Terrain'</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.3288</span>, <span class="op">-</span><span class="fl">121.6625</span>],</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">'Mt. Hood Meadows'</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(icon<span class="op">=</span><span class="st">'cloud'</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.3311</span>, <span class="op">-</span><span class="fl">121.7113</span>],</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">'Timberline Lodge'</span>,</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'green'</span>)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.3300</span>, <span class="op">-</span><span class="fl">121.6823</span>],</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">'Some Other Location'</span>,</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'red'</span>, icon<span class="op">=</span><span class="st">'info-sign'</span>)</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.372</span>, <span class="op">-</span><span class="fl">121.6972</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    zoom_start<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    tiles<span class="op">=</span><span class="st">'Stamen Terrain'</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.3288</span>, <span class="op">-</span><span class="fl">121.6625</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">'Mt. Hood Meadows'</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(icon<span class="op">=</span><span class="st">'cloud'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.3311</span>, <span class="op">-</span><span class="fl">121.7113</span>],</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">'Timberline Lodge'</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>folium.Marker(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    location<span class="op">=</span>[<span class="fl">45.3300</span>, <span class="op">-</span><span class="fl">121.6823</span>],</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="st">'Some Other Location'</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    icon<span class="op">=</span>folium.Icon(color<span class="op">=</span><span class="st">'red'</span>, icon<span class="op">=</span><span class="st">'info-sign'</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>).add_to(m)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="rich-outputs-from-notebook-cells" class="level2">
-<h2 class="anchored" data-anchor-id="rich-outputs-from-notebook-cells">Rich outputs from notebook cells</h2>
-<p>Because notebooks have rich text outputs, you can store these in your Jupyter Book as well! For example, here is the command line help menu, see how it is nicely formatted.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>jupyter<span class="op">-</span>book build <span class="op">--</span><span class="bu">help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>And here is an error. You can mark notebook cells as “expected to error” by adding a <code>raises-exception</code> tag to them.</p>
-<div class="cell" data-tags="[&quot;raises-exception&quot;]">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>this_will_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="more-features-with-jupyter-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="more-features-with-jupyter-notebooks">More features with Jupyter notebooks</h2>
-<p>There are many other features of Jupyter notebooks to take advantage of, such as automatically generating Binder links for notebooks or connecting your content with a kernel in the cloud. For more information browse the pages in this site, and <a href="content:code-outputs"></a> in particular.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
