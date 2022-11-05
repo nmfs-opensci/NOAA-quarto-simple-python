@@ -11,7 +11,11 @@ execute:
 jupyter: python3
 ---
 ```
-Also you will need to add any modules that your code needs to the `requirements.txt` file so they are installed by the GitHub Action.
+Also you will need to add any modules that your code needs to the `requirements.txt` file so they are installed by the GitHub Action. You can run this code from a terminal window:
+```
+python3 -m pip install -r requirements.txt
+```
+Note this assumes Python 3+.
 
 ## GitHub Set-up
 
